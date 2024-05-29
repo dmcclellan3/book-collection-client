@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import React, { useState } from 'react'
-import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -11,10 +7,11 @@ import {
 } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './index.css'
 import './App.css'
 
 import App from './App'
-import Login from './Login'
+// import Login from './Login'
 import ErrorPage from './ErrorPage'
 import Header from './Header'
 import Footer from './Footer'
@@ -41,7 +38,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <App />,
-        errorElement: <ErrorPage />
       },
       {
         path: '/login',
@@ -51,16 +47,16 @@ const router = createBrowserRouter([
   }
 ])
 
-
 const AuthContextProvider = ({ children }) => {
-  const [accessToken, setAccessToken ] = useState([])
+  const [accessToken, setAccessToken] = useState('')
   
   const auth = {
     accessToken,
     setAccessToken
   }
+
   return (
-    <AuthContext.Provider value={{ auth }} >
+    <AuthContext.Provider value={auth}>
       {children}
     </AuthContext.Provider>
   )
@@ -71,3 +67,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </AuthContextProvider>
 )
+
