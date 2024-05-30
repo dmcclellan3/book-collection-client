@@ -27,6 +27,7 @@ export const getToken = ({ auth, username, password }) => {
     }) .then(response => {
         console.log('GET TOKEN RESPONSE: ', response)
         auth.setAccessToken(response.data.access)
+        fetchBook({ auth : {accessToken : response.data.access}})
     })
     .catch(error => console.log('Error: ', error))
 }
@@ -37,9 +38,21 @@ export const fetchUser = ({ auth }) => {
         method: 'get',
         url:`${baseUrl}/profile/`,
         headers: {
-            Authorization: `Bearer ${auth.access}`
+            Authorization: `Bearer ${auth.accessToken}`
         }
     }).then(response => {
         console.log('FETCH USER RESPONSE: ', response)
+    }).catch(error => console.log('ERROR: ', error))
+}
+
+export const fetchBook = ({ auth }) => {
+    axios({
+        method: 'get',
+        url:`${baseUrl}/Book/`,
+        headers: {
+            Authorization: `Bearer ${auth.accessToken}`
+        }
+    }).then(response => {
+        console.log('FETCH BOOK RESPONSE: ', response)
     }).catch(error => console.log('ERROR: ', error))
 }
