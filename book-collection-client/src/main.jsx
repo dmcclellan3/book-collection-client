@@ -11,7 +11,7 @@ import './index.css'
 import './App.css'
 
 import App from './App'
-// import Login from './Login'
+import Login from './Login'
 import ErrorPage from './ErrorPage'
 import Header from './Header'
 import Footer from './Footer'
@@ -25,7 +25,7 @@ function Layout() {
       <div id='page-content'>
         <Outlet />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }
