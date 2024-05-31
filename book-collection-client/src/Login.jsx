@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { AuthContext } from "./authContext"
 import { useState } from 'react'
 import { getToken, createUser } from './api'
+import { useNavigate } from "react-router-dom"
 
 const CreateUser = () => {
   const [username, setUsername] = useState('')
@@ -57,6 +58,7 @@ function Login() {
   const { auth } = useContext(AuthContext)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
 const submit = () => {
   getToken({ auth, username, password })

@@ -15,6 +15,7 @@ import Login from './Login'
 import ErrorPage from './ErrorPage'
 import Header from './Header'
 import Footer from './Footer'
+import Books from './Books'
 
 import { AuthContext } from './authContext'
 
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login />
+      },
+      {
+        path: '/books',
+        element: <Books />
       },
     ]
   }
